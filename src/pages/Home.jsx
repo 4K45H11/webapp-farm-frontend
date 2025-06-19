@@ -3,6 +3,7 @@ import useProductContext from "../contexts/ProductContext";
 import useScreenSize from "../hooks/useScreenSize";
 import '/src/Home.css'; // Optional: for custom CSS
 import Footer from "../components/Footer";
+import heroImg from '../resources/heroImage.png'
 
 const Home = () => {
     const { categories, features } = useProductContext();
@@ -71,7 +72,7 @@ const Home = () => {
             {/* Hero Section */}
             <div className="hero-section mt-3 mb-5 position-relative text-white text-center">
                 <img
-                    src="src/resources/heroImage.png"
+                    src={heroImg}
                     alt="heroImg"
                     className="img-fluid w-100 rounded shadow"
                 />
