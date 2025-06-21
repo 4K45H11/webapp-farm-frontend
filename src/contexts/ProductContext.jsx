@@ -117,7 +117,7 @@ export const ProductContextProvider = ({ children }) => {
       categories, features, ratings, agriProducts,loading,error, itemDetails,
       quantity, handleAddQuantity, handleMinusQuantity,
       addToCartButton, removeFromCartButton,
-      addToWishlistButton, removeFromWishlistButton, moveToWishlist
+      addToWishlistButton, removeFromWishlistButton, moveToWishlist,setAgriProducts
     }}>
       {children}
     </ProductContext.Provider>

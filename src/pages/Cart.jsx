@@ -7,7 +7,7 @@ const Cart = () => {
   const {
     agriProducts, quantity,
     handleAddQuantity, handleMinusQuantity,
-    removeFromCartButton, moveToWishlist, loading, error
+    removeFromCartButton, moveToWishlist, loading, error,setAgriProducts
   } = useProductContext();
 
   const { orderedItems } = useUserContext();
@@ -103,7 +103,8 @@ const Cart = () => {
       userDetails: '',
       address: ''
     });
-    navigate(`/cart/address/${orderId}`);
+    setAgriProducts([])
+    return navigate(`/cart/address/${orderId}`);
   };
 
   return (
