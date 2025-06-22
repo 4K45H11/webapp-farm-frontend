@@ -20,6 +20,7 @@ const Users = () => {
 
         const data = await response.json();
         if (data) {
+            //console.log(data)
             setShow(true);
             setHistory(data);
         }
@@ -52,14 +53,32 @@ const Users = () => {
                                     <h6 className="fw-semibold">Order ID: {order.orderId}</h6>
                                     <ul className="mb-1">
                                         <li><strong>Address:</strong> {order.address}</li>
-                                        <li>
+                                        <li className='mt-2'>
                                             <strong>Items:</strong>
-                                            <pre className="text-break small bg-light p-2 rounded">{JSON.stringify(order.items, null, 2)}</pre>
+                                            {/* <pre className="text-break small bg-light p-2 rounded">{JSON.stringify(order.items, null, 2)}</pre> */}
+
+                                            {
+                                                order.items.map(i=>(
+                                                    <div key={i._id} className='border rounded p-2 mt-2'>
+                                                        <strong>Title: </strong>{i.title},<br />
+                                                        <strong>Price: </strong>₹{i.price},<br />
+                                                        <strong>Quantity: </strong>{i.quantity}
+                                                    </div>
+                                                ))
+                                            }
                                         </li>
-                                        <li><strong>Date:</strong> {order.orderDate}</li>
-                                        <li>
+                                        <li className='mt-2'><strong>Date:</strong> {order.orderDate}</li>
+                                        <li className='mt-2'>
                                             <strong>User:</strong>
-                                            <pre className="text-break small bg-light p-2 rounded">{JSON.stringify(order.user, null, 2)}</pre>
+                                            {/* <pre className="text-break small bg-light p-2 rounded">{JSON.stringify(order.user, null, 2)}</pre> */}
+
+                                            <div className='border rounded p-2 mt-2'>
+                                                <strong>Name: </strong>{order.user.name} <br />
+                                                <strong>Email: </strong> {order.user.email} <br />
+                                                <strong>Phone: </strong>{order.user.phone}
+
+                                            </div>
+
                                         </li>
                                     </ul>
                                 </div>
