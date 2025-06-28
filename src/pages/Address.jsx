@@ -152,7 +152,7 @@ const Address = () => {
         // fetching addresses after adding the address again
         await fetchAddresses();
 
-        // Reset inputs
+        // reset inputs
         setAddress('');
         setPin('');
     } catch (err) {

@@ -51,6 +51,8 @@ export const ProductContextProvider = ({ children }) => {
   
   const [quantity, setQuantity] = useState({});
 
+  // const [cartItems ,setCartItems] = useState(agriProducts.filter(p => p.inCart))
+
   useEffect(() => {
     if (data?.products) {
       setAgriProducts(data.products);
@@ -64,6 +66,7 @@ export const ProductContextProvider = ({ children }) => {
 
   // Cart
   const addToCartButton = (productId) => {
+
     return setAgriProducts(prev =>
       prev.map(p => p.itemId !== productId ? p : { ...p, inCart: true, inWishlist: false })
     );

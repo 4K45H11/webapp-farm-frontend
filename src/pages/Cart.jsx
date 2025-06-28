@@ -2,6 +2,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import useProductContext from "../contexts/ProductContext";
 import { useNavigate } from 'react-router-dom';
 import useUserContext from '../contexts/UserContext';
+import { useState } from 'react';
 
 const Cart = () => {
   const {
@@ -12,6 +13,9 @@ const Cart = () => {
 
   const { orderedItems } = useUserContext();
   const navigate = useNavigate();
+
+  
+  // const [cartItems ,setCartItems] = useState(agriProducts.filter(p => p.inCart))
 
   if (loading) return <div className="container py-3"><h4>Loading...</h4></div>;
   if (error) return <div className="container py-3"><h4>An error occurred!</h4></div>;
@@ -103,7 +107,10 @@ const Cart = () => {
       userDetails: '',
       address: ''
     });
-    setAgriProducts([])
+    setAgriProducts(prev =>
+      prev.map(p => ({ ...p, inCart: false }))
+    )
+    // setCartItems([])
     return navigate(`/cart/address/${orderId}`);
   };
 
